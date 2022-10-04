@@ -1,23 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
+
 import AddTask from "./components/AddTask";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import { Api } from "./utils/Api";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: "1",
-      title: "Estudar programação",
-      completed: false,
-    },
-    {
-      id: "2",
-      title: "ler livros",
-      completed: true,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
+
+  // renderizar tasks da API na tela
+  async function getTask() {
+    const task = await Api.getAllTask();
+    setTasks(task);
+  }
+  
+  useEffect(() => {
+    getTask();
+  }, []);
+
+  Api.createTask(setTasks);
 
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map((task) => {
@@ -28,13 +31,14 @@ function App() {
     setTasks(newTasks);
   };
 
-  const handleTaskAddition = (taskTitle) => {
-    const newTasks = [...tasks, {
-      title: taskTitle,
-      id: 1,
-      completed: false,
-    },
-  ];
+  const handleTaskAddition = (task) => {
+    const newTasks = [
+      ...tasks,
+      {
+        tarefa: task,
+        completed: false,
+      },
+    ];
 
     setTasks(newTasks);
   };

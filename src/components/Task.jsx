@@ -10,7 +10,7 @@ function Task({ task, handleTaskClick, handleTaskDeletion }) {
       style={task.completed ? { borderLeft: "6px solid blue" } : {}}
     >
       <div className="task-title" onClick={() => handleTaskClick(task.id)}>
-        {task.title}
+        {task.tarefa}
       </div>
       <div className="icons-container">
         <button className="task-see">

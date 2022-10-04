@@ -29,7 +29,12 @@ function App() {
   };
 
   const handleTaskAddition = (taskTitle) => {
-    const newTasks = [...tasks];
+    const newTasks = [...tasks, {
+      title: taskTitle,
+      id: 1,
+      completed: false,
+    },
+  ];
 
     setTasks(newTasks);
   };

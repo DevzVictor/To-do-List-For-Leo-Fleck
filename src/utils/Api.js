@@ -7,8 +7,8 @@ export const Api = {
       headers: new Headers({ "Content-Type": "application/json" }),
       body: JSON.stringify(Task),
     });
-    const newAnime = await response.json();
-    return newAnime;
+    const newTask = await response.json();
+    return newTask;
   },
 
   getAllTask: async () => {
@@ -18,23 +18,14 @@ export const Api = {
     return allTasks;
   },
 
-  deleteTask: async (animeId) => {
-    const response = await fetch(defaultUrl + "/delete/" + animeId, {
+  deleteTask: async (taskId) => {
+    const response = await fetch(defaultUrl + "/delete-tarefas/" + taskId, {
       method: "DELETE",
       headers: new Headers({ "Content-Type": "application/json" }),
     });
-    const animeDeleted = await response.json();
-    return animeDeleted;
+    const taskDeleted = await response.json();
+    return taskDeleted;
   },
 
-  updateTask: async (anime) => {
-    const response = await fetch(defaultUrl + "/update", {
-      method: "PUT",
-      headers: new Headers({ "Content-Type": "application/json" }),
-      body: JSON.stringify(anime),
-    });
 
-    const animeUpdated = await response.json();
-    return animeUpdated;
-  },
 };

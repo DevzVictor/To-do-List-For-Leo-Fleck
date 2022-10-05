@@ -31,27 +31,22 @@ function App() {
     setTasks(newTasks);
   };
 
-  const handleTaskAddition = (task) => {
-    const newTasks = [
-      ...tasks,
-      {
-        tarefa: task,
-        completed: false,
-      },
-    ];
 
-    setTasks(newTasks);
-  };
-
-  const handleTaskDeletion = (taskId) => {
-    const newTasks = tasks.filter((task) => task.id === taskId);
-    setTasks(newTasks);
-  };
+  function handleTaskDeletion(taskId) {
+    Api.deleteTask(taskId);
+    const newTaskList = tasks;
+    newTaskList.map((tasks, index) => {
+      if(tasks.id === taskId) {
+        newTaskList.splice(index, 1);
+        setTasks(newTaskList);
+      }
+    });
+  }
 
   return (
     <div className="container">
       <Header />
-      <AddTask handleTaskAddition={handleTaskAddition} />
+      <AddTask />
       <Tasks
         tasks={tasks}
         handleTaskClick={handleTaskClick}

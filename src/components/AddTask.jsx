@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import "./AddTask.css";
 import Button from "./Button";
+import { Api } from "../utils/Api"
 
 function AddTask({handleTaskAddition}) {
   const [inputData, setInputData] = useState("");
 
   const handleInputChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setInputData(e.target.value);
   };
 
-  const handleAddTaskClick = () => {
-    handleTaskAddition(inputData);
-    setInputData("");
+  async function handleAddTaskClick(){
+    await Api.createTask(inputData)
+    // handleTaskAddition(inputData);
+    // setInputData("");
   }
 
   return (
@@ -24,7 +26,7 @@ function AddTask({handleTaskAddition}) {
         type="text"
       ></input>
       <div className="add-task-button-container">
-        <Button onClick={handleAddTaskClick}>adicionar</Button>
+        <Button onClick={handleAddTaskClick}>Adicionar</Button>
       </div>
     </div>
   );

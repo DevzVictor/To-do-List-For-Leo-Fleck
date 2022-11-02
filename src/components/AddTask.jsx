@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import "./AddTask.css";
 import Button from "./Button";
 import { Api } from "../utils/Api";
+import { getAllByAltText } from "@testing-library/react";
 
-function AddTask() {
+function AddTask({getAll}) {
   const [inputData, setInputData] = useState({"complete": false});
 
+  //create task function
   async function handleAddTaskSubmit(event) {
     event.preventDefault();
 
     await Api.createTask(inputData);
-    console.log(inputData);
+    await getAll()
   }
 
   return (

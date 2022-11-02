@@ -2,12 +2,13 @@ import React from "react";
 import "./Task.css";
 import { RiCloseLine, RiSearchEyeLine } from "react-icons/ri";
 
+
 function Task({ task, handleTaskClick, handleTaskDeletion }) {
 
   return (
     <div
       className="task-container" 
-      style={task.completed ? { borderLeft: "6px solid blue" } : {}}
+      style={task.complete ? { borderLeft: "6px solid blue" } : {}}
     >
       <div className="task-title" onClick={() => handleTaskClick(task.id)}>
         {task.tarefa}
@@ -18,7 +19,7 @@ function Task({ task, handleTaskClick, handleTaskDeletion }) {
         </button>
         <button
         className="task-close"
-        onClick={() => handleTaskDeletion(task.id)}>
+        onClick={() => handleTaskDeletion(task._id)}>
         <RiCloseLine/>
         </button>
         

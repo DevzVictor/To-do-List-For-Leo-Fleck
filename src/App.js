@@ -16,36 +16,39 @@ function App() {
     setTasks(task);
   }
   
+  // executa somente quando o componente for renderizado pois não há nada no array de dependências
   useEffect(() => {
     getTask();
   }, []);
 
-
+  // tarefa como concluida
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map((task) => {
-      if (task.id === taskId) return { ...task, completed: !task.completed };
+      if (task.id === taskId) return { ...task, complete: !task.complete };
       return task;
     });
 
     setTasks(newTasks);
   };
 
-
+// deletas task a partir do ID
   function handleTaskDeletion(taskId) {
     Api.deleteTask(taskId);
     const newTaskList = tasks;
     newTaskList.map((tasks, index) => {
       if(tasks.id === taskId) {
         newTaskList.splice(index, 1);
-        setTasks(newTaskList);
+        setTasks(newTaskList);  
       }
+      getTask();
     });
+
   }
 
   return (
     <div className="container">
       <Header />
-      <AddTask />
+      <AddTask getAll={getTask}/>
       <Tasks
         tasks={tasks}
         handleTaskClick={handleTaskClick}

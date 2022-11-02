@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./AddTask.css";
 import Button from "./Button";
 import { Api } from "../utils/Api";
-import { getAllByAltText } from "@testing-library/react";
 
 function AddTask({getAll}) {
   const [inputData, setInputData] = useState({"complete": false});

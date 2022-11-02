@@ -21,7 +21,7 @@ function App() {
     getTask();
   }, []);
 
-  // tarefa como concluida
+  // tarefa como concluída
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) return { ...task, complete: !task.complete };

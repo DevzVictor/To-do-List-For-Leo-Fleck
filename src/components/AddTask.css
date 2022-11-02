@@ -20,6 +20,12 @@
     outline: none;
 }
 
+.form-input {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
 .add-task-button-container{
     margin-left: 10px;
     flex: 1;

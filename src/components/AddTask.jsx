@@ -1,33 +1,33 @@
 import React, { useState } from "react";
 import "./AddTask.css";
 import Button from "./Button";
-import { Api } from "../utils/Api"
+import { Api } from "../utils/Api";
 
-function AddTask({handleTaskAddition}) {
-  const [inputData, setInputData] = useState("");
+function AddTask() {
+  const [inputData, setInputData] = useState({"complete": false});
 
-  const handleInputChange = (e) => {
-    // console.log(e.target.value);
-    setInputData(e.target.value);
-  };
+  async function handleAddTaskSubmit(event) {
+    event.preventDefault();
 
-  async function handleAddTaskClick(){
-    await Api.createTask(inputData)
-    // handleTaskAddition(inputData);
-    // setInputData("");
+    await Api.createTask(inputData);
+    console.log(inputData);
   }
 
   return (
     <div className="add-task-container">
-      <input
-        onChange={handleInputChange}
-        value={inputData}
-        className="add-task-input"
-        type="text"
-      ></input>
-      <div className="add-task-button-container">
-        <Button onClick={handleAddTaskClick}>Adicionar</Button>
-      </div>
+      <form onSubmit={handleAddTaskSubmit} className="form-input">
+        <input
+          type="text"
+          name="tarefa"
+          onChange={(event) => {
+            setInputData({...inputData, tarefa: event.target.value });
+          }}
+          className="add-task-input"
+        ></input>
+        <div className="add-task-button-container">
+          <Button>Adicionar</Button>
+        </div>
+      </form>
     </div>
   );
 }

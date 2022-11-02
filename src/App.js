@@ -20,7 +20,6 @@ function App() {
     getTask();
   }, []);
 
-  Api.createTask(setTasks);
 
   const handleTaskClick = (taskId) => {
     const newTasks = tasks.map((task) => {

@@ -32,10 +32,12 @@ function Task({ task, handleTaskClick, handleTaskDeletion, handleTaskUpdate}) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [uniqueTask, setUniqueTask] = useState({});
 
+  // abrir e fechar modal
   function handleModal() {
     setModalIsOpen(!modalIsOpen);
   }
 
+  // update task function
   function updateTask(event) {
     event.preventDefault();
 

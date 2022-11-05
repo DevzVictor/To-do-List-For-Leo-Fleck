@@ -1,44 +1,94 @@
-.task-container{
-    background: linear-gradient(
-        90deg,
-        rgb(8, 114, 189) 0%,
-        rgb(7, 83, 182) 100%
-      );
-    margin: 8px 0;
-    padding: 15px 20px;
-    display: flex;
-    border-radius: 5px;
-    justify-content: space-between;
-    color: #fff;
-    align-items: center;
+.task-container {
+  background: linear-gradient(90deg, rgb(8, 114, 189) 0%, rgb(7, 83, 182) 100%);
+  margin: 8px 0;
+  padding: 15px 20px;
+  display: flex;
+  border-radius: 5px;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
 }
 
-.task-title{
-    cursor: pointer;
-    font-size: 18px;
-    /* font-weight: bold; */
+.task-title {
+  cursor: pointer;
+  font-size: 18px;
+  /* font-weight: bold; */
 }
 
-.icons-container{
-    width: 30%;
-    display: flex;
-    justify-content: flex-end;
+.icons-container {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.task-close{
-    font-size: 28px;
-    color:#fff;
-    border: none;
-    cursor: pointer;
-    margin: 0 5px;
-    background-color: transparent;
+.task-close {
+  font-size: 28px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  background-color: transparent;
 }
 
-.task-see{
-    font-size: 24px;
-    color:#fff;
-    border: none;
-    cursor: pointer;
-    margin: 0 5px;
-    background-color: transparent;
+.task-see {
+  font-size: 24px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  background-color: transparent;
+}
+
+/* update modal form css */
+.update-task-container {
+  background: linear-gradient(90deg, rgb(8, 114, 189) 0%, rgb(7, 83, 182) 100%);
+  margin: 8px 0;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+}
+
+.update-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.atualizar-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.update-task-input {
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: none;
+  flex: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+
+.update-form-input {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.update-task-button-container {
+  margin-left: 10px;
+  flex: 1;
 }

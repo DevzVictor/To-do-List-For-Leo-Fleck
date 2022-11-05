@@ -1,6 +1,6 @@
 import React from "react";
 import Task from "./Task";
-function Tasks({ tasks, handleTaskClick, handleTaskDeletion }) {
+function Tasks({ tasks, handleTaskClick, handleTaskDeletion, handleTaskUpdate }) {
   return (
     <>
       {tasks.map((task, index) => (
@@ -9,6 +9,7 @@ function Tasks({ tasks, handleTaskClick, handleTaskDeletion }) {
           task={task}
           handleTaskClick={handleTaskClick}
           handleTaskDeletion={handleTaskDeletion}
+          handleTaskUpdate={handleTaskUpdate}
         />
       ))}
       

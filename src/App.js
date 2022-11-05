@@ -15,7 +15,7 @@ function App() {
     const task = await Api.getAllTask();
     setTasks(task);
   }
-  
+
   // executa somente quando o componente for renderizado pois não há nada no array de dependências
   useEffect(() => {
     getTask();
@@ -31,28 +31,28 @@ function App() {
     setTasks(newTasks);
   };
 
-// deletas task a partir do ID
+  // deletas task a partir do ID
   function handleTaskDeletion(taskId) {
     Api.deleteTask(taskId);
     const newTaskList = tasks;
     newTaskList.map((tasks, index) => {
-      if(tasks.id === taskId) {
+      if (tasks.id === taskId) {
         newTaskList.splice(index, 1);
-        setTasks(newTaskList);  
+        setTasks(newTaskList);
       }
       getTask();
     });
-
   }
 
   return (
     <div className="container">
       <Header />
-      <AddTask getAll={getTask}/>
+      <AddTask getAll={getTask} />
       <Tasks
         tasks={tasks}
         handleTaskClick={handleTaskClick}
         handleTaskDeletion={handleTaskDeletion}
+        handleTaskUpdate={getTask()}
       />
     </div>
   );

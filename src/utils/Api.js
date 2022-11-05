@@ -27,5 +27,17 @@ export const Api = {
     return taskDeleted;
   },
 
+  updateTask: async (taskId, task) => {
+    const response = await fetch(defaultUrl + "/update-tarefas/" + taskId, {
+      method: "PUT",
+      headers: new Headers({ "Content-Type": "application/json" }),
+      body: JSON.stringify(task),
+    });
+
+    console.log(response);
+    const taskUpdated = await response.json();
+    console.log(taskUpdated);
+    return taskUpdated;
+  }
 
 };

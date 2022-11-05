@@ -28,7 +28,7 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-function Task({ task, handleTaskClick, handleTaskDeletion, handleTaskUpdate}) {
+function Task({ task, handleTaskClick, handleTaskDeletion}) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [uniqueTask, setUniqueTask] = useState({});
 

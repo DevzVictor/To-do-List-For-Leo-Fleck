@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "./Task.css";
 
@@ -34,8 +34,6 @@ function Task({ task, handleTaskClick, handleTaskDeletion, handleTaskUpdate}) {
 
   function handleModal() {
     setModalIsOpen(!modalIsOpen);
-    // const get = handleTaskUpdate
-    // return get;
   }
 
   function updateTask(event) {

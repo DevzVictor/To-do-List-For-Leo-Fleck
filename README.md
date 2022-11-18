@@ -2,7 +2,7 @@
 
  Neste projeto você visualizar, cadastrar, deletar e atualizar tarefas do seu dia-a-dia
  
-# Deploy: https://meu-link-vmdev.herokuapp.com/
+# Deploy: https://to-do-list-for-leo-fleck.vercel.app/
 
  ## 🚀 Começando
 
